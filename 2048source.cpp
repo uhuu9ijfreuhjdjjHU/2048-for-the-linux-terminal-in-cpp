@@ -1,5 +1,5 @@
 
-  //2048 clone in the linux terminal or windows terminal.
+  //2048 clone in the linux terminal.
   //Copyright (C) 2025 River Knuuttila, common alias, Annie.
 
   //This program is free software: you can redistribute it and/or modify

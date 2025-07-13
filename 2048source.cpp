@@ -109,7 +109,8 @@ if (noticeA=="r")
 
       if (!canMove(playingGrid)) //lose condition.
       {
-        cout<<"Game Over!" << endl;
+        getScore(playingGrid,score);
+        cout<<"Game Over!"<<endl<<"score: "<<score<<endl;
         break;
       }
     }
@@ -120,7 +121,8 @@ if (noticeA=="r")
       {
         if (playingGrid[i][j]==2048)
         {
-          cout<<" GG, you win! :3"<<endl; //win condition.
+          getScore(playingGrid,score);
+          cout<<" GG, you win! :3"<<endl<<"score : "<<score<<endl; //win condition
           break;
         }
       }

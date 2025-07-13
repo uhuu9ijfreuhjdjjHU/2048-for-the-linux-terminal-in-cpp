@@ -319,4 +319,15 @@ bool canMove(int grid[4][4]) //can it move?
   return false;
 }
 
+void getScore (int array[4][4],int &score) //gets total score of all the different cubes combines.
+{
+  for (int i = 0; i < 4; i++)
+  {
+    for (int j = 0; j < 4; j++)
+    {
+      score = score + array[i][j];
+    }
+  } 
+}
+
 

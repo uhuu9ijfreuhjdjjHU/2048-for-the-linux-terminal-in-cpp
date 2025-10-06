@@ -34,7 +34,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <cstring>
-#include "/home/ami3/codejunks/finishedProjects/2048/projectfiles/projectLibrary.hpp" //change depending on your file path.
+#include "/home/aval/2048-for-the-linux-terminal-in-cpp/projectfiles/projectLibrary.hpp" //change depending on your file path.
 
 int main(){
   

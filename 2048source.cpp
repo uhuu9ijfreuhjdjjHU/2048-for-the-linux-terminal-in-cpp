@@ -37,6 +37,8 @@
 #include "/home/aval/2048-for-the-linux-terminal-in-cpp/projectfiles/projectLibrary.hpp" //change depending on your file path.
 
 int main(){
+
+  int score = 0;
   
   ifstream file("/home/ami3/codejunks/finishedProjects/2048/projectfiles/copywriteNotice.txt"); //change depending on your file path.
     

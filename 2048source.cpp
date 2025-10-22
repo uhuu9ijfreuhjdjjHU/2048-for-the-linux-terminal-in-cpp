@@ -34,13 +34,82 @@
 #include <cstdlib>
 #include <fstream>
 #include <cstring>
-#include "/home/aval/2048-for-the-linux-terminal-in-cpp/projectfiles/projectLibrary.hpp" //change depending on your file path.
+#include "projectfiles/projectLibrary.hpp" //change depending on your file path.
+  
+string tileColor(int value)
+{
+  switch (value)
+  {
+    case 0:    return "\033[48;5;187m"; // empty (#cdc1b4)
+    case 2:    return "\033[48;5;254m"; // #eee4da
+    case 4:    return "\033[48;5;230m"; // #ede0c8
+    case 8:    return "\033[48;5;215m"; // #f2b179
+    case 16:   return "\033[48;5;209m"; // #f59563
+    case 32:   return "\033[48;5;208m"; // #f67c5f
+    case 64:   return "\033[48;5;202m"; // #f65e3b
+    case 128:  return "\033[48;5;221m"; // #edcf72
+    case 256:  return "\033[48;5;220m"; // #edcc61
+    case 512:  return "\033[48;5;178m"; // #edc850
+    case 1024: return "\033[48;5;178m"; // #edc53f
+    case 2048: return "\033[48;5;220m"; // #edc22e
+    default:   return "\033[48;5;187m"; // fallback (empty)
+  }
+}
+
+void emptyBox()
+{
+  cout << "|" << tileColor(0) << "    " << "\033[0m";
+}
+
+void printBox(int displayNumber)
+{
+  string bg = tileColor(displayNumber);
+  string fg = "\033[38;5;0m"; // black text
+
+  if (displayNumber > 0)
+  {
+    if (displayNumber >= 1000)
+      {
+      cout << "|" << bg << fg << displayNumber << "\033[0m";
+      }
+    else if (displayNumber >= 100)
+      {
+      cout << "|" << bg << fg << displayNumber << " " << "\033[0m";
+      }
+    else if (displayNumber >= 10)
+      {
+      cout << "|" << bg << fg << displayNumber << "  " << "\033[0m";
+      }
+    else
+    {
+      cout << "|" << bg << fg << " " << displayNumber << "  " << "\033[0m";
+    }
+  }
+  else
+  {
+    emptyBox();
+  }
+}
+
+void printGame(int playingGrid[4][4]) //prints the playingGrid and cubes containing numbers.
+{
+  for (int i = 0; i < 4; i++)
+  {
+    cout<<"_____________________" << endl;
+    for (int j = 0; j < 4; j++)
+    {
+      printBox(playingGrid[i][j]);
+    }
+    cout<<"|"<<endl;
+  }
+  cout<<"_____________________" << endl;
+}
 
 int main(){
 
   int score = 0;
   
-  ifstream file("/home/ami3/codejunks/finishedProjects/2048/projectfiles/copywriteNotice.txt"); //change depending on your file path.
+  ifstream file("projectfiles/copywriteNotice.txt"); //change depending on your file path.
     
   if (!file) 
   {
@@ -136,7 +205,7 @@ if (noticeA=="r")
 else if (noticeA=="d")
 {
   
-  ifstream file("/home/ami3/codejunks/finishedProjects/2048/projectfiles/License text"); //change depending on your file path.
+  ifstream file("projectfiles/License text"); //change depending on your file path.
     
   if (!file) 
   {

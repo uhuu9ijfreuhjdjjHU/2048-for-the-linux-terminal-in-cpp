@@ -23,7 +23,7 @@ void clearScreen() //self explanetory, clears screen.
   #ifdef _WIN32
     system("cls");
   #else
-    std::cout<<"\033[2J\033[H";
+    cout<<"\033[2J\033[H";
   #endif
 }
 
@@ -48,59 +48,12 @@ void setBufferedInput(bool enable) //sets terminal input to repeat and detect wi
   }
 }
 
-void emptyBox() //prints empty box.
-{
-  cout<<"|    ";
-}
-
-void printBox(int displayNumber) // prints box depending on the amoung of digits the number has.
-{
-  if (displayNumber >= 1000)
-  {
-    cout<<"|"<<displayNumber;
-  }
-  
-  else if (displayNumber >= 100)
-  {
-    cout<<"|"<<displayNumber<<" ";
-  }
-  
-  else if (displayNumber >= 10)
-  {
-    cout<<"|"<<displayNumber<<"  ";
-  }
-  
-  else if (displayNumber > 0)
-  {
-    cout<<"| "<<displayNumber<<"  ";
-  }
-  
-  else
-  {
-    emptyBox();
-  }
-}
-
 int getRandomNumber(int min, int max) //also pretty self explanetory, generates a random number based on a minimum and maximum.
 {
   random_device rd;
   mt19937 gen(rd());
   uniform_int_distribution<> distr(min, max);
   return distr(gen);
-}
-
-void printGame(int playingGrid[4][4]) //prints the playingGrid and cubes containing numbers.
-{
-  for (int i = 0; i < 4; i++)
-  {
-    cout<<"_____________________" << endl;
-    for (int j = 0; j < 4; j++)
-    {
-      printBox(playingGrid[i][j]);
-    }
-    cout<<"|"<<endl;
-  }
-  cout<<"_____________________" << endl;
 }
 
 bool newRandomBox(int playingGrid[4][4]) //prints new random box with '2' everytime the player makes a valid move
@@ -329,5 +282,4 @@ void getScore (int array[4][4],int &score) //gets total score of all the differe
     }
   } 
 }
-
 
